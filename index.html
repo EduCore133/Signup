@@ -521,18 +521,6 @@
     gap: 1.5rem;
   }
 
-  /* 5-card layout: 3 top, 2 bottom centred */
-  .courses-grid .course-card:nth-child(4) { grid-column: 1 / 2; margin-left: calc(50% + 0.75rem); }
-  .courses-grid .course-card:nth-child(5) { grid-column: 2 / 3; }
-
-  .course-desc {
-    font-size: 0.76rem;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.65;
-    margin-bottom: 1rem;
-    flex: 1;
-  }
-
   .course-card {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.08);
@@ -565,7 +553,7 @@
     border-radius: 100px;
   }
 
-  .course-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .course-body { padding: 1.5rem; }
 
   .course-title {
     font-family: 'Playfair Display', serif;
@@ -1061,7 +1049,11 @@
       </div>
       <div class="course-body">
         <div class="course-title">Academic Writing & Research Skills</div>
-        <div class="course-desc">Master assignments, referencing styles, proposal writing, and research techniques that set you apart in any academic setting.</div>
+        <div class="course-meta">
+          <span>Assignments</span>
+          <span>·</span>
+          <span>Referencing</span>
+        </div>
         <div class="course-rating">★★★★★ <span style="color:rgba(255,255,255,0.5); font-weight:400;">4.9 (204 reviews)</span></div>
       </div>
     </div>
@@ -1072,7 +1064,11 @@
       </div>
       <div class="course-body">
         <div class="course-title">Digital Skills for Students</div>
-        <div class="course-desc">Get hands-on with Canva, Google Workspace, productivity tools, and online branding — the digital toolkit every modern student needs.</div>
+        <div class="course-meta">
+          <span>Canva</span>
+          <span>·</span>
+          <span>Google Workspace</span>
+        </div>
         <div class="course-rating">★★★★★ <span style="color:rgba(255,255,255,0.5); font-weight:400;">4.8 (178 reviews)</span></div>
       </div>
     </div>
@@ -1083,7 +1079,11 @@
       </div>
       <div class="course-body">
         <div class="course-title">Career Development & CV Building</div>
-        <div class="course-desc">Learn CV writing, LinkedIn profile optimisation, interview preparation, and personal branding strategies to land your dream role.</div>
+        <div class="course-meta">
+          <span>CV Writing</span>
+          <span>·</span>
+          <span>LinkedIn</span>
+        </div>
         <div class="course-rating">★★★★★ <span style="color:rgba(255,255,255,0.5); font-weight:400;">4.9 (312 reviews)</span></div>
       </div>
     </div>
@@ -1094,7 +1094,11 @@
       </div>
       <div class="course-body">
         <div class="course-title">Study Strategies & Academic Excellence</div>
-        <div class="course-desc">Develop time management, note-taking, exam preparation, and effective study habits specifically designed for university students.</div>
+        <div class="course-meta">
+          <span>Time Management</span>
+          <span>·</span>
+          <span>Exam Prep</span>
+        </div>
         <div class="course-rating">★★★★★ <span style="color:rgba(255,255,255,0.5); font-weight:400;">4.8 (267 reviews)</span></div>
       </div>
     </div>
@@ -1105,7 +1109,11 @@
       </div>
       <div class="course-body">
         <div class="course-title">Leadership & Personal Development</div>
-        <div class="course-desc">Build confidence, communication, teamwork, and professional growth skills that transform students into the leaders of tomorrow.</div>
+        <div class="course-meta">
+          <span>Confidence</span>
+          <span>·</span>
+          <span>Communication</span>
+        </div>
         <div class="course-rating">★★★★★ <span style="color:rgba(255,255,255,0.5); font-weight:400;">4.9 (289 reviews)</span></div>
       </div>
     </div>
@@ -1206,11 +1214,12 @@
         <label class="form-label">I'm Interested In</label>
         <select class="form-select" id="inp-interest">
           <option value="">Select a program area</option>
-          <option>Academic Writing & Research Skills</option>
-          <option>Digital Skills for Students</option>
-          <option>Career Development & CV Building</option>
-          <option>Study Strategies & Academic Excellence</option>
-          <option>Leadership & Personal Development</option>
+          <option>Business Leadership & Management</option>
+          <option>Digital Marketing</option>
+          <option>Financial Intelligence</option>
+          <option>Entrepreneurship</option>
+          <option>Personal Development</option>
+          <option>Technology & Innovation</option>
         </select>
       </div>
       <button class="form-submit" id="submit-btn" onclick="handleSignup()">Enroll for Free →</button>
