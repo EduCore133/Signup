@@ -1,0 +1,1741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Teach with EduCore — Join Our Tutor Network</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --edu-navy:    #0D1B3E;
+    --edu-blue:    #1A3A8F;
+    --edu-accent:  #F4A922;
+    --edu-gold:    #E8960D;
+    --edu-light:   #F0F4FF;
+    --edu-white:   #FFFFFF;
+    --edu-text:    #1C2340;
+    --edu-muted:   #5A637A;
+    --edu-border:  #D4DCF0;
+    --edu-success: #13875A;
+    --font-head: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'DM Mono', monospace;
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 32px;
+    --shadow-sm: 0 2px 8px rgba(13,27,62,0.08);
+    --shadow-md: 0 8px 32px rgba(13,27,62,0.12);
+    --shadow-lg: 0 20px 60px rgba(13,27,62,0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--edu-text);
+    background: var(--edu-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,27,62,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 0 2rem;
+    height: 68px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--font-head);
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--edu-white); text-decoration: none;
+  }
+  .nav-logo .logo-mark {
+    width: 36px; height: 36px;
+    background: var(--edu-accent);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; font-weight: 900;
+    color: var(--edu-navy);
+  }
+  .nav-badge {
+    background: rgba(244,169,34,0.15);
+    border: 1px solid rgba(244,169,34,0.35);
+    color: var(--edu-accent);
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 1.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.72);
+    text-decoration: none; font-size: 0.9rem; font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--edu-white); }
+  .nav-cta {
+    background: var(--edu-accent) !important;
+    color: var(--edu-navy) !important;
+    font-weight: 600 !important;
+    padding: 8px 20px !important;
+    border-radius: var(--radius-sm) !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+  .nav-cta:hover { background: var(--edu-gold) !important; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--edu-navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 0;
+    padding-top: 68px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(26,58,143,0.5) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(244,169,34,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-grid-lines {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.04;
+    background-image:
+      linear-gradient(var(--edu-white) 1px, transparent 1px),
+      linear-gradient(90deg, var(--edu-white) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content {
+    padding: 5rem 4rem 5rem 6rem;
+    position: relative; z-index: 2;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(244,169,34,0.12);
+    border: 1px solid rgba(244,169,34,0.3);
+    color: var(--edu-accent);
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 6px 14px;
+    border-radius: 20px; margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--edu-accent); border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-weight: 700; color: var(--edu-white);
+    line-height: 1.15; margin-bottom: 1.2rem;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--edu-accent);
+    border-bottom: 3px solid rgba(244,169,34,0.4);
+  }
+  .hero-sub {
+    font-size: 1.05rem; color: rgba(255,255,255,0.7);
+    max-width: 500px; margin-bottom: 2.5rem; line-height: 1.75;
+  }
+  .hero-actions {
+    display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    margin-bottom: 3.5rem;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--edu-accent); color: var(--edu-navy);
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
+    padding: 14px 28px; border-radius: var(--radius-sm);
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(244,169,34,0.3);
+  }
+  .btn-primary:hover {
+    background: var(--edu-gold); transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(244,169,34,0.4);
+  }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--edu-white);
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 400;
+    padding: 14px 24px; border-radius: var(--radius-sm);
+    text-decoration: none; border: 1px solid rgba(255,255,255,0.3);
+    cursor: pointer; transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-secondary:hover {
+    border-color: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.06);
+  }
+  .hero-stats {
+    display: flex; gap: 2.5rem;
+  }
+  .stat-item { text-align: left; }
+  .stat-num {
+    font-family: var(--font-head);
+    font-size: 2rem; font-weight: 700;
+    color: var(--edu-accent); display: block;
+  }
+  .stat-label {
+    font-size: 0.78rem; color: rgba(255,255,255,0.5);
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+
+  /* Hero Right — Card Stack */
+  .hero-visual {
+    padding: 5rem 5rem 5rem 2rem;
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .tutor-card-preview {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-lg);
+    padding: 1.4rem 1.6rem;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s, background 0.3s;
+  }
+  .tutor-card-preview:hover {
+    transform: translateX(-6px);
+    background: rgba(255,255,255,0.1);
+  }
+  .tutor-card-preview.featured {
+    border-color: rgba(244,169,34,0.4);
+    background: rgba(244,169,34,0.08);
+  }
+  .tcp-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
+  }
+  .tcp-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 0.85rem; flex-shrink: 0;
+  }
+  .av-blue { background: rgba(26,58,143,0.6); color: #93b4f5; }
+  .av-gold { background: rgba(244,169,34,0.25); color: var(--edu-accent); }
+  .av-green { background: rgba(19,135,90,0.3); color: #5de6a8; }
+  .tcp-name { color: var(--edu-white); font-weight: 500; font-size: 0.95rem; }
+  .tcp-role { color: rgba(255,255,255,0.5); font-size: 0.78rem; }
+  .tcp-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tcp-tag {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.72rem; padding: 3px 10px;
+    border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);
+  }
+  .tcp-tag.gold {
+    background: rgba(244,169,34,0.15);
+    color: var(--edu-accent);
+    border-color: rgba(244,169,34,0.25);
+  }
+  .verified-badge {
+    margin-left: auto;
+    background: rgba(19,135,90,0.2);
+    color: #5de6a8;
+    font-size: 0.7rem; font-weight: 600;
+    padding: 3px 9px; border-radius: 20px;
+    border: 1px solid rgba(19,135,90,0.3);
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 6rem 6rem; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--edu-blue);
+    display: block; margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: var(--font-head);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700; color: var(--edu-navy);
+    line-height: 1.2; margin-bottom: 1rem;
+  }
+  .section-sub {
+    font-size: 1rem; color: var(--edu-muted);
+    max-width: 560px; line-height: 1.75;
+  }
+  .section-header { margin-bottom: 3.5rem; }
+
+  /* ── WHY EDUCORE ── */
+  .why-section { background: var(--edu-light); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .why-card {
+    background: var(--edu-white);
+    border: 1px solid var(--edu-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: box-shadow 0.25s, transform 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .why-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--edu-accent);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .why-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+  .why-card:hover::before { transform: scaleX(1); }
+  .why-icon {
+    width: 52px; height: 52px;
+    background: var(--edu-light);
+    border: 1px solid var(--edu-border);
+    border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.2rem; font-size: 1.4rem;
+  }
+  .why-card h3 {
+    font-family: var(--font-head);
+    font-size: 1.15rem; font-weight: 600;
+    color: var(--edu-navy); margin-bottom: 0.6rem;
+  }
+  .why-card p { font-size: 0.9rem; color: var(--edu-muted); line-height: 1.7; }
+
+  /* ── HOW IT WORKS ── */
+  .steps-section { background: var(--edu-white); }
+  .steps-track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+  .steps-track::before {
+    content: '';
+    position: absolute;
+    top: 36px; left: calc(12.5% + 24px); right: calc(12.5% + 24px);
+    height: 2px;
+    background: linear-gradient(90deg, var(--edu-accent) 0%, var(--edu-blue) 100%);
+    z-index: 0;
+  }
+  .step-item {
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; padding: 0 1rem;
+    position: relative; z-index: 1;
+  }
+  .step-num {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.2rem;
+    font-family: var(--font-head);
+    font-size: 1.4rem; font-weight: 700;
+    border: 3px solid var(--edu-border);
+    background: var(--edu-white);
+    transition: border-color 0.3s, background 0.3s, color 0.3s;
+    color: var(--edu-navy);
+  }
+  .step-item:hover .step-num {
+    background: var(--edu-navy);
+    border-color: var(--edu-navy);
+    color: var(--edu-accent);
+  }
+  .step-item.active .step-num {
+    background: var(--edu-accent);
+    border-color: var(--edu-accent);
+    color: var(--edu-navy);
+  }
+  .step-item h3 {
+    font-size: 0.95rem; font-weight: 600;
+    color: var(--edu-navy); margin-bottom: 0.4rem;
+  }
+  .step-item p {
+    font-size: 0.83rem; color: var(--edu-muted); line-height: 1.6;
+  }
+
+  /* ── WHO CAN JOIN ── */
+  .who-section {
+    background: var(--edu-navy);
+    position: relative; overflow: hidden;
+  }
+  .who-section::before {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.03;
+    background-image:
+      linear-gradient(var(--edu-white) 1px, transparent 1px),
+      linear-gradient(90deg, var(--edu-white) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  .who-section .section-title,
+  .who-section .section-label { color: var(--edu-accent); }
+  .who-section .section-sub { color: rgba(255,255,255,0.65); }
+  .who-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  }
+  .who-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-lg); padding: 1.8rem;
+    transition: background 0.25s, border-color 0.25s;
+    display: flex; gap: 1.2rem; align-items: flex-start;
+  }
+  .who-card:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(244,169,34,0.3);
+  }
+  .who-icon {
+    width: 48px; height: 48px; border-radius: var(--radius-sm);
+    background: rgba(244,169,34,0.12);
+    border: 1px solid rgba(244,169,34,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .who-card h3 {
+    font-size: 1rem; font-weight: 600; color: var(--edu-white);
+    margin-bottom: 0.4rem;
+  }
+  .who-card p { font-size: 0.87rem; color: rgba(255,255,255,0.58); line-height: 1.65; }
+
+  /* ── EARNINGS SECTION ── */
+  .earnings-section { background: var(--edu-light); }
+  .earnings-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+    align-items: center;
+  }
+  .earnings-left .section-sub { margin-bottom: 2rem; }
+  .earnings-perks { display: flex; flex-direction: column; gap: 1rem; }
+  .perk-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1.1rem 1.2rem;
+    background: var(--edu-white);
+    border: 1px solid var(--edu-border);
+    border-radius: var(--radius-md);
+    transition: box-shadow 0.2s;
+  }
+  .perk-item:hover { box-shadow: var(--shadow-sm); }
+  .perk-check {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: rgba(19,135,90,0.12);
+    border: 1px solid rgba(19,135,90,0.25);
+    color: var(--edu-success);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 0.7rem; margin-top: 1px;
+  }
+  .perk-text strong {
+    display: block; font-size: 0.92rem; font-weight: 600;
+    color: var(--edu-navy); margin-bottom: 2px;
+  }
+  .perk-text span { font-size: 0.83rem; color: var(--edu-muted); }
+
+  .earnings-right {
+    background: var(--edu-white);
+    border: 1px solid var(--edu-border);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem; box-shadow: var(--shadow-md);
+  }
+  .earnings-header {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; margin-bottom: 1.8rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--edu-border);
+  }
+  .earnings-title { font-size: 0.8rem; color: var(--edu-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .earnings-amount {
+    font-family: var(--font-head);
+    font-size: 2.8rem; font-weight: 700;
+    color: var(--edu-navy); display: block; margin-top: 4px;
+  }
+  .earnings-tag {
+    background: rgba(19,135,90,0.1);
+    color: var(--edu-success);
+    font-size: 0.75rem; font-weight: 600;
+    padding: 4px 12px; border-radius: 20px;
+    border: 1px solid rgba(19,135,90,0.2);
+  }
+  .rate-rows { display: flex; flex-direction: column; gap: 0.75rem; }
+  .rate-row {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 0.88rem;
+  }
+  .rate-label { color: var(--edu-muted); flex: 1; }
+  .rate-bar-wrap { flex: 2; background: var(--edu-light); border-radius: 4px; height: 8px; }
+  .rate-bar {
+    height: 8px; border-radius: 4px;
+    background: linear-gradient(90deg, var(--edu-blue), var(--edu-accent));
+  }
+  .rate-val { font-weight: 600; color: var(--edu-navy); min-width: 80px; text-align: right; }
+  .earnings-note {
+    margin-top: 1.5rem; padding-top: 1.2rem;
+    border-top: 1px solid var(--edu-border);
+    font-size: 0.8rem; color: var(--edu-muted);
+  }
+
+  /* ── SUBJECTS ── */
+  .subjects-section { background: var(--edu-white); }
+  .subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+  .subject-pill {
+    background: var(--edu-light);
+    border: 1px solid var(--edu-border);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .subject-pill:hover {
+    background: var(--edu-navy);
+    border-color: var(--edu-navy);
+    transform: translateY(-3px);
+  }
+  .subject-pill:hover .subj-name { color: var(--edu-white); }
+  .subject-pill:hover .subj-icon { background: rgba(255,255,255,0.1); }
+  .subj-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--edu-white);
+    border: 1px solid var(--edu-border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; margin: 0 auto 0.6rem;
+    transition: background 0.2s;
+  }
+  .subj-name { font-size: 0.82rem; font-weight: 500; color: var(--edu-navy); transition: color 0.2s; }
+  .subjects-more {
+    text-align: center; margin-top: 1.5rem;
+    font-size: 0.88rem; color: var(--edu-muted);
+  }
+  .subjects-more a { color: var(--edu-blue); text-decoration: none; font-weight: 500; }
+
+  /* ── REGISTRATION FORM ── */
+  #register {
+    background: var(--edu-white);
+    padding: 6rem 6rem;
+    scroll-margin-top: 68px;
+  }
+  .form-layout {
+    display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem;
+    align-items: flex-start;
+  }
+  .form-sidebar .section-sub { margin-bottom: 2rem; }
+  .form-checklist {
+    display: flex; flex-direction: column; gap: 10px;
+    margin-bottom: 2rem;
+  }
+  .fcl-item {
+    display: flex; gap: 10px; align-items: center;
+    font-size: 0.88rem; color: var(--edu-muted);
+  }
+  .fcl-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--edu-accent); flex-shrink: 0;
+  }
+  .form-trust {
+    background: var(--edu-light); border: 1px solid var(--edu-border);
+    border-radius: var(--radius-md); padding: 1rem 1.2rem;
+    font-size: 0.83rem; color: var(--edu-muted); line-height: 1.6;
+  }
+  .form-trust strong { color: var(--edu-navy); }
+
+  .registration-form {
+    background: var(--edu-white);
+    border: 1px solid var(--edu-border);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-lg);
+  }
+  .form-title {
+    font-family: var(--font-head);
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--edu-navy); margin-bottom: 0.3rem;
+  }
+  .form-subtitle { font-size: 0.87rem; color: var(--edu-muted); margin-bottom: 2rem; }
+
+  .form-section-head {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--edu-blue);
+    margin: 1.8rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--edu-border);
+  }
+  .form-section-head:first-of-type { margin-top: 0; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 1rem; }
+  .form-group.full { grid-column: 1 / -1; }
+
+  label {
+    font-size: 0.82rem; font-weight: 500; color: var(--edu-text);
+  }
+  label .req { color: #d94040; margin-left: 2px; }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"],
+  select, textarea {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--edu-text);
+    background: var(--edu-white);
+    border: 1px solid var(--edu-border);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+    appearance: none; -webkit-appearance: none;
+  }
+  input::placeholder, textarea::placeholder { color: #aab0c2; }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--edu-blue);
+    box-shadow: 0 0 0 3px rgba(26,58,143,0.08);
+  }
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A637A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+  }
+  textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
+
+  .subject-checks {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  }
+  .check-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 10px;
+    background: var(--edu-light);
+    border: 1px solid var(--edu-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer; transition: border-color 0.2s, background 0.2s;
+    font-size: 0.83rem; color: var(--edu-text);
+    position: relative;
+  }
+  .check-item input[type="checkbox"] {
+    width: 15px; height: 15px; flex-shrink: 0;
+    accent-color: var(--edu-blue);
+    cursor: pointer;
+  }
+  .check-item:has(input:checked) {
+    background: rgba(26,58,143,0.07);
+    border-color: var(--edu-blue);
+    color: var(--edu-navy);
+  }
+
+  .avail-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .avail-item {
+    padding: 8px;
+    background: var(--edu-light);
+    border: 1px solid var(--edu-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer; text-align: center;
+    font-size: 0.78rem; color: var(--edu-muted);
+    transition: all 0.2s;
+  }
+  .avail-item input { display: none; }
+  .avail-day { font-weight: 600; font-size: 0.82rem; color: var(--edu-navy); }
+  .avail-item:has(input:checked) {
+    background: var(--edu-navy); border-color: var(--edu-navy);
+  }
+  .avail-item:has(input:checked) .avail-day,
+  .avail-item:has(input:checked) { color: var(--edu-white); }
+
+  .mode-options { display: flex; gap: 10px; }
+  .mode-opt {
+    flex: 1; padding: 10px;
+    background: var(--edu-light);
+    border: 1px solid var(--edu-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer; text-align: center;
+    font-size: 0.85rem; color: var(--edu-muted);
+    transition: all 0.2s;
+  }
+  .mode-opt input { display: none; }
+  .mode-opt .mode-label { font-weight: 600; color: var(--edu-navy); font-size: 0.9rem; }
+  .mode-opt:has(input:checked) {
+    background: rgba(26,58,143,0.06);
+    border-color: var(--edu-blue);
+  }
+  .mode-opt:has(input:checked) .mode-label { color: var(--edu-blue); }
+
+  .file-upload {
+    border: 2px dashed var(--edu-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    text-align: center; cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .file-upload:hover {
+    border-color: var(--edu-blue);
+    background: rgba(26,58,143,0.03);
+  }
+  .file-upload input { display: none; }
+  .file-upload-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .file-upload p { font-size: 0.85rem; color: var(--edu-muted); }
+  .file-upload span { font-size: 0.78rem; color: #aab0c2; }
+
+  .rate-input-wrap {
+    display: flex; align-items: center; gap: 0;
+  }
+  .rate-prefix {
+    background: var(--edu-light);
+    border: 1px solid var(--edu-border);
+    border-right: none;
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+    padding: 10px 12px;
+    font-size: 0.9rem; color: var(--edu-muted); font-weight: 500;
+  }
+  .rate-input-wrap input {
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+
+  .consent-row {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.82rem; color: var(--edu-muted); line-height: 1.55;
+    margin-top: 0.5rem;
+  }
+  .consent-row input { flex-shrink: 0; margin-top: 2px; accent-color: var(--edu-blue); }
+  .consent-row a { color: var(--edu-blue); text-decoration: none; }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--edu-navy);
+    color: var(--edu-white);
+    font-family: var(--font-body);
+    font-size: 1rem; font-weight: 600;
+    padding: 15px; border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer; margin-top: 1.5rem;
+    transition: background 0.2s, transform 0.15s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .submit-btn:hover {
+    background: var(--edu-blue); transform: translateY(-1px);
+  }
+  .submit-btn .btn-arrow { font-size: 1.1rem; transition: transform 0.2s; }
+  .submit-btn:hover .btn-arrow { transform: translateX(4px); }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-section { background: var(--edu-light); }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .testi-card {
+    background: var(--edu-white);
+    border: 1px solid var(--edu-border);
+    border-radius: var(--radius-lg);
+    padding: 1.8rem;
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+  .testi-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+  .testi-quote {
+    font-size: 0.9rem; color: var(--edu-muted);
+    line-height: 1.75; margin-bottom: 1.2rem; font-style: italic;
+  }
+  .testi-quote::before { content: '\201C'; color: var(--edu-accent); font-size: 1.5rem; }
+  .testi-author {
+    display: flex; align-items: center; gap: 10px;
+    padding-top: 1rem; border-top: 1px solid var(--edu-border);
+  }
+  .testi-avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 0.8rem;
+  }
+  .ta-1 { background: rgba(26,58,143,0.12); color: var(--edu-blue); }
+  .ta-2 { background: rgba(244,169,34,0.15); color: var(--edu-gold); }
+  .ta-3 { background: rgba(19,135,90,0.12); color: var(--edu-success); }
+  .testi-name { font-weight: 600; font-size: 0.88rem; color: var(--edu-navy); }
+  .testi-role { font-size: 0.78rem; color: var(--edu-muted); }
+  .testi-stars { color: var(--edu-accent); font-size: 0.82rem; letter-spacing: 1px; }
+
+  /* ── FAQ ── */
+  .faq-section { background: var(--edu-white); }
+  .faq-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: flex-start; }
+  .faq-list { display: flex; flex-direction: column; gap: 0; }
+  .faq-item {
+    border-bottom: 1px solid var(--edu-border);
+    cursor: pointer;
+  }
+  .faq-item:first-child { border-top: 1px solid var(--edu-border); }
+  .faq-q {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.1rem 0;
+    font-size: 0.93rem; font-weight: 500; color: var(--edu-navy);
+    user-select: none; gap: 1rem;
+  }
+  .faq-toggle {
+    width: 24px; height: 24px; flex-shrink: 0;
+    background: var(--edu-light);
+    border: 1px solid var(--edu-border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; color: var(--edu-muted);
+    transition: background 0.2s, color 0.2s, transform 0.25s;
+  }
+  .faq-item.open .faq-toggle {
+    background: var(--edu-navy); color: var(--edu-white);
+    transform: rotate(45deg);
+  }
+  .faq-a {
+    font-size: 0.87rem; color: var(--edu-muted);
+    line-height: 1.75; overflow: hidden;
+    max-height: 0; transition: max-height 0.3s ease, padding 0.3s;
+    padding-bottom: 0;
+  }
+  .faq-item.open .faq-a { max-height: 200px; padding-bottom: 1.2rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--edu-navy);
+    padding: 4rem 6rem 2rem;
+  }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand p {
+    font-size: 0.87rem; color: rgba(255,255,255,0.5);
+    line-height: 1.7; margin-top: 0.8rem; max-width: 280px;
+  }
+  .footer-col h4 {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255,255,255,0.4);
+    margin-bottom: 1rem;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col ul a {
+    font-size: 0.87rem; color: rgba(255,255,255,0.6);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--edu-white); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 1.5rem;
+  }
+  .footer-bottom p {
+    font-size: 0.8rem; color: rgba(255,255,255,0.35);
+  }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a {
+    font-size: 0.8rem; color: rgba(255,255,255,0.35);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+  /* ── FLOATING CTA ── */
+  .floating-cta {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 50;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+  }
+  .floating-cta.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+  .floating-btn {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--edu-navy);
+    color: var(--edu-white);
+    font-family: var(--font-body); font-size: 0.88rem; font-weight: 600;
+    padding: 12px 20px; border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(13,27,62,0.35);
+    transition: background 0.2s, transform 0.15s;
+  }
+  .floating-btn:hover { background: var(--edu-blue); transform: translateY(-2px); }
+  .floating-btn .dot { width: 8px; height: 8px; background: var(--edu-accent); border-radius: 50%; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    section, #register { padding: 5rem 3rem; }
+    footer { padding: 3rem 3rem 1.5rem; }
+    nav { padding: 0 1.5rem; }
+    .hero-content { padding: 4rem 3rem 4rem 4rem; }
+    .hero-visual { padding: 4rem 3rem 4rem 2rem; }
+    .steps-track { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .steps-track::before { display: none; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .hero-content { padding: 4rem 2rem; }
+    .why-grid, .testi-grid { grid-template-columns: 1fr; }
+    .who-grid { grid-template-columns: 1fr; }
+    .form-layout, .faq-layout, .earnings-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .subject-checks { grid-template-columns: 1fr 1fr; }
+    .avail-grid { grid-template-columns: repeat(2, 1fr); }
+    .nav-links { display: none; }
+    section, #register { padding: 4rem 1.5rem; }
+    footer { padding: 3rem 1.5rem 1.5rem; }
+    .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="logo-mark">E</div>
+    EduCore
+  </a>
+  <div class="nav-badge">Tutor Portal</div>
+  <ul class="nav-links">
+    <li><a href="#why">Why EduCore</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#earnings">Earnings</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#register" class="nav-cta">Apply Now</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="top">
+  <div class="hero-grid-lines"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Now Accepting Tutor Applications</div>
+    <h1>Share Your Knowledge.<br>Shape <em>Futures</em>.<br>Earn on Your Terms.</h1>
+    <p class="hero-sub">EduCore connects exceptional educators with students who need them most. Whether you're a seasoned professional or seeking a flexible part-time role, your expertise can change lives — and your schedule.</p>
+    <div class="hero-actions">
+      <a href="#register" class="btn-primary">
+        Apply as a Tutor
+        <span style="font-size:1.1rem">→</span>
+      </a>
+      <a href="#how" class="btn-secondary">
+        See how it works
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">4,200+</span>
+        <span class="stat-label">Active Students</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">98%</span>
+        <span class="stat-label">Satisfaction Rate</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">₦8M+</span>
+        <span class="stat-label">Paid to Tutors</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="tutor-card-preview featured">
+      <div class="tcp-header">
+        <div class="tcp-avatar av-gold">AO</div>
+        <div>
+          <div class="tcp-name">Adaeze Okonkwo</div>
+          <div class="tcp-role">MSc Mathematics · 7 yrs exp.</div>
+        </div>
+        <span class="verified-badge">✓ Verified</span>
+      </div>
+      <div class="tcp-tags">
+        <span class="tcp-tag gold">Mathematics</span>
+        <span class="tcp-tag gold">Statistics</span>
+        <span class="tcp-tag">Physics</span>
+        <span class="tcp-tag">WAEC Prep</span>
+      </div>
+    </div>
+
+    <div class="tutor-card-preview">
+      <div class="tcp-header">
+        <div class="tcp-avatar av-blue">CU</div>
+        <div>
+          <div class="tcp-name">Chidi Uzoagba</div>
+          <div class="tcp-role">B.Sc Computer Science</div>
+        </div>
+        <span class="verified-badge">✓ Verified</span>
+      </div>
+      <div class="tcp-tags">
+        <span class="tcp-tag">Programming</span>
+        <span class="tcp-tag">Data Science</span>
+        <span class="tcp-tag">Web Dev</span>
+      </div>
+    </div>
+
+    <div class="tutor-card-preview">
+      <div class="tcp-header">
+        <div class="tcp-avatar av-green">FN</div>
+        <div>
+          <div class="tcp-name">Fatimah Nuhu</div>
+          <div class="tcp-role">MBBS · Medical Sciences</div>
+        </div>
+        <span class="verified-badge">✓ Verified</span>
+      </div>
+      <div class="tcp-tags">
+        <span class="tcp-tag">Biology</span>
+        <span class="tcp-tag">Chemistry</span>
+        <span class="tcp-tag">Anatomy</span>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top: 0.5rem;">
+      <a href="#register" style="font-size:0.83rem; color:rgba(255,255,255,0.5); text-decoration:none;">
+        Join 1,800+ tutors already on the platform →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY EDUCORE ── -->
+<section class="why-section" id="why">
+  <div class="section-header">
+    <span class="section-label">Why Choose EduCore</span>
+    <h2 class="section-title">A Platform Built for Educators First</h2>
+    <p class="section-sub">We believe great teachers deserve great support. EduCore gives you the tools, students, and flexibility to teach on your own terms.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🗓️</div>
+      <h3>Total Schedule Flexibility</h3>
+      <p>Set your own hours, accept only sessions you want, and build a teaching routine that fits your life — whether full-time or part-time.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎯</div>
+      <h3>Smart Student Matching</h3>
+      <p>Our platform intelligently connects you with students who match your subject expertise, experience level, and teaching style preferences.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💳</div>
+      <h3>Reliable, Fast Payments</h3>
+      <p>Payments are processed weekly directly to your bank account with full transparency. Know exactly what you earn per session, every time.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🛡️</div>
+      <h3>Verified & Trusted Profile</h3>
+      <p>We verify credentials and display your qualifications, building your reputation and helping students choose you with confidence.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📱</div>
+      <h3>Online & In-Person Sessions</h3>
+      <p>Teach from home via our virtual classroom or meet students locally. Manage all sessions, materials, and communications in one dashboard.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📈</div>
+      <h3>Grow Your Teaching Career</h3>
+      <p>Access professional development resources, collect student reviews, and build a portfolio that grows your reputation and student base.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="steps-section" id="how">
+  <div class="section-header" style="text-align:center; max-width:600px; margin:0 auto 4rem;">
+    <span class="section-label">The Process</span>
+    <h2 class="section-title">From Application to First Session</h2>
+    <p class="section-sub" style="margin:0 auto">Getting started with EduCore is straightforward. Most tutors complete their first session within one week of applying.</p>
+  </div>
+  <div class="steps-track">
+    <div class="step-item active">
+      <div class="step-num">01</div>
+      <h3>Complete Your Profile</h3>
+      <p>Submit your qualifications, subjects, experience, and preferred teaching schedule using our detailed registration form.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-num">02</div>
+      <h3>Credential Review</h3>
+      <p>Our vetting team reviews your documents, verifies credentials, and may schedule a brief welcome call within 48–72 hours.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-num">03</div>
+      <h3>Profile Goes Live</h3>
+      <p>Once approved, your tutor profile is published on EduCore. Students can find, review, and book you directly.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-num">04</div>
+      <h3>Teach & Get Paid</h3>
+      <p>Accept session requests, conduct lessons, and receive weekly payments. Build your student base over time with great reviews.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO CAN JOIN ── -->
+<section class="who-section">
+  <div class="section-header">
+    <span class="section-label">Eligibility</span>
+    <h2 class="section-title">Who Can Join EduCore?</h2>
+    <p class="section-sub">We welcome educators from all walks of life. If you have knowledge to share and a passion for teaching, there's a place for you on EduCore.</p>
+  </div>
+  <div class="who-grid">
+    <div class="who-card">
+      <div class="who-icon">🎓</div>
+      <div>
+        <h3>University Graduates & Postgraduates</h3>
+        <p>Hold a B.Sc, M.Sc, PhD, or professional degree and want to share subject expertise with secondary, tertiary, or exam-prep students.</p>
+      </div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">🏫</div>
+      <div>
+        <h3>Practicing & Retired Teachers</h3>
+        <p>Classroom teachers, lecturers, or retired educators looking to extend their impact, earn additional income, or stay engaged in education.</p>
+      </div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">💼</div>
+      <div>
+        <h3>Professionals Seeking Part-Time Income</h3>
+        <p>Engineers, doctors, accountants, IT professionals and others who want to monetize their expertise through flexible evening or weekend tutoring.</p>
+      </div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">📚</div>
+      <div>
+        <h3>Final-Year Students & Postgrads</h3>
+        <p>Strong academic performers who excel in their field and want to mentor or tutor junior students, especially in entrance exam preparation.</p>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:2rem; padding: 1.4rem 2rem; background:rgba(244,169,34,0.1); border: 1px solid rgba(244,169,34,0.25); border-radius: var(--radius-md); display:flex; align-items:center; gap:1rem; max-width:700px;">
+    <span style="font-size:1.3rem;">ℹ️</span>
+    <p style="font-size:0.87rem; color:rgba(255,255,255,0.7); line-height:1.65;">Tutors must be at least <strong style="color:var(--edu-accent)">18 years old</strong> and hold a minimum of SSCE/WAEC certificate with demonstrated proficiency. Subject to background check and credential verification.</p>
+  </div>
+</section>
+
+<!-- ── EARNINGS ── -->
+<section class="earnings-section" id="earnings">
+  <div class="earnings-inner">
+    <div class="earnings-left">
+      <span class="section-label">What You Can Earn</span>
+      <h2 class="section-title">Competitive, Transparent Pay</h2>
+      <p class="section-sub">Your rate reflects your qualifications and experience. EduCore takes no hidden cuts — what you see is what you earn, paid directly to your account every week.</p>
+      <div class="earnings-perks">
+        <div class="perk-item">
+          <div class="perk-check">✓</div>
+          <div class="perk-text">
+            <strong>Set Your Own Rate</strong>
+            <span>Propose your hourly rate during registration. We'll advise on competitive benchmarks.</span>
+          </div>
+        </div>
+        <div class="perk-item">
+          <div class="perk-check">✓</div>
+          <div class="perk-text">
+            <strong>Weekly Bank Transfers</strong>
+            <span>Earnings are disbursed every Friday to your registered Nigerian bank account with zero deductions.</span>
+          </div>
+        </div>
+        <div class="perk-item">
+          <div class="perk-check">✓</div>
+          <div class="perk-text">
+            <strong>Performance Bonuses</strong>
+            <span>Top-rated tutors with high satisfaction scores receive monthly performance bonuses.</span>
+          </div>
+        </div>
+        <div class="perk-item">
+          <div class="perk-check">✓</div>
+          <div class="perk-text">
+            <strong>Earnings Dashboard</strong>
+            <span>Track all sessions, payments, and upcoming bookings in real-time through your tutor dashboard.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="earnings-right">
+      <div class="earnings-header">
+        <div>
+          <div class="earnings-title">Average Monthly Earnings</div>
+          <span class="earnings-amount">₦180,000</span>
+        </div>
+        <span class="earnings-tag">+22% this quarter</span>
+      </div>
+      <div style="font-size:0.78rem; color:var(--edu-muted); margin-bottom:1.2rem; text-transform:uppercase; letter-spacing:0.06em;">Hourly Rate Ranges by Level</div>
+      <div class="rate-rows">
+        <div class="rate-row">
+          <span class="rate-label">Primary / JS Tutors</span>
+          <div class="rate-bar-wrap"><div class="rate-bar" style="width:38%"></div></div>
+          <span class="rate-val">₦3,000–5,000</span>
+        </div>
+        <div class="rate-row">
+          <span class="rate-label">SS / WAEC Prep</span>
+          <div class="rate-bar-wrap"><div class="rate-bar" style="width:55%"></div></div>
+          <span class="rate-val">₦5,000–8,000</span>
+        </div>
+        <div class="rate-row">
+          <span class="rate-label">University Level</span>
+          <div class="rate-bar-wrap"><div class="rate-bar" style="width:72%"></div></div>
+          <span class="rate-val">₦8,000–14,000</span>
+        </div>
+        <div class="rate-row">
+          <span class="rate-label">Professional / Specialist</span>
+          <div class="rate-bar-wrap"><div class="rate-bar" style="width:95%"></div></div>
+          <span class="rate-val">₦15,000–25,000</span>
+        </div>
+      </div>
+      <p class="earnings-note">* Rates are indicative and depend on qualifications, subject demand, and student level. Ranges increase with experience and positive reviews.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SUBJECTS ── -->
+<section class="subjects-section">
+  <div class="section-header" style="text-align:center;">
+    <span class="section-label">Subject Areas</span>
+    <h2 class="section-title">What Can You Teach?</h2>
+    <p class="section-sub" style="margin:0 auto;">We cover a wide range of subjects across primary, secondary, and tertiary levels. If your subject isn't listed, you can add it during registration.</p>
+  </div>
+  <div class="subjects-grid">
+    <div class="subject-pill"><div class="subj-icon">➕</div><div class="subj-name">Mathematics</div></div>
+    <div class="subject-pill"><div class="subj-icon">⚗️</div><div class="subj-name">Chemistry</div></div>
+    <div class="subject-pill"><div class="subj-icon">🔬</div><div class="subj-name">Biology</div></div>
+    <div class="subject-pill"><div class="subj-icon">⚡</div><div class="subj-name">Physics</div></div>
+    <div class="subject-pill"><div class="subj-icon">📗</div><div class="subj-name">English Language</div></div>
+    <div class="subject-pill"><div class="subj-icon">🌍</div><div class="subj-name">Geography</div></div>
+    <div class="subject-pill"><div class="subj-icon">📜</div><div class="subj-name">History</div></div>
+    <div class="subject-pill"><div class="subj-icon">💻</div><div class="subj-name">Computer Science</div></div>
+    <div class="subject-pill"><div class="subj-icon">📊</div><div class="subj-name">Economics</div></div>
+    <div class="subject-pill"><div class="subj-icon">🏛️</div><div class="subj-name">Government</div></div>
+    <div class="subject-pill"><div class="subj-icon">📐</div><div class="subj-name">Further Maths</div></div>
+    <div class="subject-pill"><div class="subj-icon">🗣️</div><div class="subj-name">French</div></div>
+    <div class="subject-pill"><div class="subj-icon">🎨</div><div class="subj-name">Fine Arts</div></div>
+    <div class="subject-pill"><div class="subj-icon">🎵</div><div class="subj-name">Music</div></div>
+    <div class="subject-pill"><div class="subj-icon">📈</div><div class="subj-name">Accounting</div></div>
+    <div class="subject-pill"><div class="subj-icon">⚖️</div><div class="subj-name">Law</div></div>
+    <div class="subject-pill"><div class="subj-icon">🏥</div><div class="subj-name">Medical Sciences</div></div>
+    <div class="subject-pill"><div class="subj-icon">🔧</div><div class="subj-name">Engineering</div></div>
+    <div class="subject-pill"><div class="subj-icon">📱</div><div class="subj-name">Digital Skills</div></div>
+    <div class="subject-pill"><div class="subj-icon">✏️</div><div class="subj-name">Other Subject</div></div>
+  </div>
+  <p class="subjects-more">Don't see your subject? <a href="#register">Add it in the registration form →</a></p>
+</section>
+
+<!-- ── REGISTRATION FORM ── -->
+<section id="register">
+  <div class="form-layout">
+    <div class="form-sidebar">
+      <span class="section-label">Tutor Registration</span>
+      <h2 class="section-title">Join EduCore Today</h2>
+      <p class="section-sub">Complete the form to submit your application. Our team reviews all submissions within 3 business days.</p>
+      <div class="form-checklist">
+        <div class="fcl-item"><div class="fcl-dot"></div>Takes about 10 minutes to complete</div>
+        <div class="fcl-item"><div class="fcl-dot"></div>Have your degree certificate or credentials ready</div>
+        <div class="fcl-item"><div class="fcl-dot"></div>A government-issued ID will be required</div>
+        <div class="fcl-item"><div class="fcl-dot"></div>Clear profile photo recommended</div>
+        <div class="fcl-item"><div class="fcl-dot"></div>Bank details needed for payment setup</div>
+      </div>
+      <div class="form-trust">
+        <strong>🔒 Your information is secure.</strong><br>
+        EduCore uses encrypted forms and stores your data in compliance with NDPR (Nigeria Data Protection Regulation). We will never share your personal information with third parties.
+      </div>
+    </div>
+
+    <div class="registration-form">
+      <div class="form-title">Tutor Application Form</div>
+      <div class="form-subtitle">All fields marked <span style="color:#d94040">*</span> are required</div>
+
+      <div class="form-section-head">Personal Information</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name <span class="req">*</span></label>
+          <input type="text" placeholder="e.g. Chidi" />
+        </div>
+        <div class="form-group">
+          <label>Last Name <span class="req">*</span></label>
+          <input type="text" placeholder="e.g. Okafor" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email Address <span class="req">*</span></label>
+          <input type="email" placeholder="yourname@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Phone Number <span class="req">*</span></label>
+          <input type="tel" placeholder="+234 800 000 0000" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>State of Residence <span class="req">*</span></label>
+          <select>
+            <option value="">— Select State —</option>
+            <option>Abia</option><option>Adamawa</option><option>Akwa Ibom</option>
+            <option>Anambra</option><option>Bauchi</option><option>Bayelsa</option>
+            <option>Benue</option><option>Borno</option><option>Cross River</option>
+            <option>Delta</option><option>Ebonyi</option><option>Edo</option>
+            <option>Ekiti</option><option>Enugu</option><option>FCT – Abuja</option>
+            <option>Gombe</option><option>Imo</option><option>Jigawa</option>
+            <option>Kaduna</option><option>Kano</option><option>Katsina</option>
+            <option>Kebbi</option><option>Kogi</option><option>Kwara</option>
+            <option>Lagos</option><option>Nasarawa</option><option>Niger</option>
+            <option>Ogun</option><option>Ondo</option><option>Osun</option>
+            <option>Oyo</option><option selected>Rivers</option><option>Sokoto</option>
+            <option>Taraba</option><option>Yobe</option><option>Zamfara</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>City / LGA <span class="req">*</span></label>
+          <input type="text" placeholder="e.g. Port Harcourt" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Gender</label>
+        <select>
+          <option value="">— Prefer not to say —</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Non-binary / Other</option>
+        </select>
+      </div>
+
+      <div class="form-section-head">Academic Credentials</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Highest Qualification <span class="req">*</span></label>
+          <select>
+            <option value="">— Select —</option>
+            <option>SSCE / WAEC / NECO</option>
+            <option>OND / NCE</option>
+            <option>B.Sc / B.A / B.Ed / B.Eng</option>
+            <option>HND</option>
+            <option>PGDE / PGD</option>
+            <option>M.Sc / M.A / MBA</option>
+            <option>PhD / DPhil</option>
+            <option>Professional Certificate (e.g. ICAN, CIMA)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Field of Study / Specialization <span class="req">*</span></label>
+          <input type="text" placeholder="e.g. Mathematics Education" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Name of Institution</label>
+          <input type="text" placeholder="e.g. University of Port Harcourt" />
+        </div>
+        <div class="form-group">
+          <label>Year of Graduation</label>
+          <input type="text" placeholder="e.g. 2019" />
+        </div>
+      </div>
+
+      <div class="form-section-head">Subjects of Specialization</div>
+      <label style="display:block; margin-bottom:10px;">Select all subjects you are qualified to teach <span class="req">*</span></label>
+      <div class="subject-checks">
+        <label class="check-item"><input type="checkbox" /> Mathematics</label>
+        <label class="check-item"><input type="checkbox" /> Physics</label>
+        <label class="check-item"><input type="checkbox" /> Chemistry</label>
+        <label class="check-item"><input type="checkbox" /> Biology</label>
+        <label class="check-item"><input type="checkbox" /> English Language</label>
+        <label class="check-item"><input type="checkbox" /> Literature</label>
+        <label class="check-item"><input type="checkbox" /> Further Maths</label>
+        <label class="check-item"><input type="checkbox" /> Economics</label>
+        <label class="check-item"><input type="checkbox" /> Accounting</label>
+        <label class="check-item"><input type="checkbox" /> Government</label>
+        <label class="check-item"><input type="checkbox" /> History</label>
+        <label class="check-item"><input type="checkbox" /> Geography</label>
+        <label class="check-item"><input type="checkbox" /> Computer Science</label>
+        <label class="check-item"><input type="checkbox" /> French</label>
+        <label class="check-item"><input type="checkbox" /> Yoruba</label>
+        <label class="check-item"><input type="checkbox" /> Igbo</label>
+        <label class="check-item"><input type="checkbox" /> Engineering</label>
+        <label class="check-item"><input type="checkbox" /> Medical Sciences</label>
+      </div>
+      <div class="form-group" style="margin-top:0.8rem;">
+        <label>Other Subject(s) not listed above</label>
+        <input type="text" placeholder="Separate multiple subjects with commas" />
+      </div>
+
+      <div class="form-section-head">Teaching Experience</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Years of Teaching Experience <span class="req">*</span></label>
+          <select>
+            <option value="">— Select —</option>
+            <option>Less than 1 year</option>
+            <option>1–2 years</option>
+            <option>3–5 years</option>
+            <option>6–10 years</option>
+            <option>10+ years</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Student Levels You Can Teach <span class="req">*</span></label>
+          <select>
+            <option value="">— Select Primary Level —</option>
+            <option>Primary School (Basic 1–6)</option>
+            <option>Junior Secondary (JSS 1–3)</option>
+            <option>Senior Secondary (SS 1–3 / WAEC)</option>
+            <option>University / Tertiary</option>
+            <option>Professional / Adult Learning</option>
+            <option>Multiple Levels</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Brief Teaching Bio <span class="req">*</span></label>
+        <textarea placeholder="Tell students and parents about yourself — your background, teaching approach, achievements, and what makes your sessions effective. (100–300 words recommended)"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Have you tutored before? If yes, briefly describe your experience</label>
+        <textarea placeholder="e.g. Tutored 15+ SS3 students through WAEC prep over 3 years; 90% achieved A or B grades in Mathematics." style="min-height:70px;"></textarea>
+      </div>
+
+      <div class="form-section-head">Availability & Scheduling</div>
+      <label style="display:block; margin-bottom:10px;">Days Available to Teach <span class="req">*</span></label>
+      <div class="avail-grid" style="margin-bottom:1rem;">
+        <label class="avail-item"><input type="checkbox" /><div class="avail-day">Mon</div><div>Weekday</div></label>
+        <label class="avail-item"><input type="checkbox" /><div class="avail-day">Tue</div><div>Weekday</div></label>
+        <label class="avail-item"><input type="checkbox" /><div class="avail-day">Wed</div><div>Weekday</div></label>
+        <label class="avail-item"><input type="checkbox" /><div class="avail-day">Thu</div><div>Weekday</div></label>
+        <label class="avail-item"><input type="checkbox" /><div class="avail-day">Fri</div><div>Weekday</div></label>
+        <label class="avail-item"><input type="checkbox" /><div class="avail-day">Sat</div><div>Weekend</div></label>
+        <label class="avail-item"><input type="checkbox" /><div class="avail-day">Sun</div><div>Weekend</div></label>
+        <label class="avail-item"><input type="checkbox" /><div class="avail-day">Flexible</div><div>Any day</div></label>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Preferred Session Time</label>
+          <select>
+            <option value="">— Select —</option>
+            <option>Morning (6am – 12pm)</option>
+            <option>Afternoon (12pm – 5pm)</option>
+            <option>Evening (5pm – 9pm)</option>
+            <option>Flexible / Any time</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Max Sessions Per Week</label>
+          <select>
+            <option>1–3 sessions (Light)</option>
+            <option>4–6 sessions (Moderate)</option>
+            <option>7–10 sessions (Active)</option>
+            <option>10+ sessions (Full-time)</option>
+          </select>
+        </div>
+      </div>
+      <label style="display:block; margin-bottom:8px;">Teaching Mode Preference <span class="req">*</span></label>
+      <div class="mode-options" style="margin-bottom:1rem;">
+        <label class="mode-opt"><input type="radio" name="mode" /><div class="mode-label">Online Only</div><div style="font-size:0.75rem; color:var(--edu-muted); margin-top:3px;">Via video call</div></label>
+        <label class="mode-opt"><input type="radio" name="mode" /><div class="mode-label">In-Person Only</div><div style="font-size:0.75rem; color:var(--edu-muted); margin-top:3px;">At student's location</div></label>
+        <label class="mode-opt"><input type="radio" name="mode" /><div class="mode-label">Both Modes</div><div style="font-size:0.75rem; color:var(--edu-muted); margin-top:3px;">Flexible hybrid</div></label>
+      </div>
+
+      <div class="form-section-head">Rate & Payment</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Proposed Hourly Rate (₦) <span class="req">*</span></label>
+          <div class="rate-input-wrap">
+            <span class="rate-prefix">₦</span>
+            <input type="text" placeholder="e.g. 8,000" style="border-radius: 0 var(--radius-sm) var(--radius-sm) 0;" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Bank Name</label>
+          <select>
+            <option value="">— Select Bank —</option>
+            <option>Access Bank</option>
+            <option>Ecobank</option>
+            <option>FCMB</option>
+            <option>Fidelity Bank</option>
+            <option>First Bank of Nigeria</option>
+            <option>GTBank</option>
+            <option>Keystone Bank</option>
+            <option>Opay</option>
+            <option>Palmpay</option>
+            <option>Polaris Bank</option>
+            <option>Stanbic IBTC</option>
+            <option>Sterling Bank</option>
+            <option>UBA</option>
+            <option>Union Bank</option>
+            <option>Unity Bank</option>
+            <option>Wema Bank</option>
+            <option>Zenith Bank</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Account Number</label>
+          <input type="text" placeholder="10-digit NUBAN account number" />
+        </div>
+        <div class="form-group">
+          <label>Account Name (as registered)</label>
+          <input type="text" placeholder="e.g. Chidi Okafor" />
+        </div>
+      </div>
+
+      <div class="form-section-head">Documents & Identity</div>
+      <div class="form-group">
+        <div class="file-upload" onclick="this.querySelector('input').click()">
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" />
+          <div class="file-upload-icon">📄</div>
+          <p><strong>Upload Academic Certificate(s)</strong></p>
+          <span>PDF, JPG or PNG · Max 5MB per file</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="file-upload" onclick="this.querySelector('input').click()">
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" />
+          <div class="file-upload-icon">🪪</div>
+          <p><strong>Upload Government-Issued ID</strong></p>
+          <span>NIN Slip, Driver's Licence, Voter's Card, or International Passport</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="file-upload" onclick="this.querySelector('input').click()">
+          <input type="file" accept=".jpg,.jpeg,.png" />
+          <div class="file-upload-icon">📷</div>
+          <p><strong>Upload a Recent Profile Photo</strong></p>
+          <span>Clear, professional headshot · JPG or PNG · Max 2MB</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>LinkedIn Profile URL (optional)</label>
+        <input type="url" placeholder="https://linkedin.com/in/yourprofile" />
+      </div>
+
+      <div class="form-section-head">Additional Information</div>
+      <div class="form-group">
+        <label>How did you hear about EduCore?</label>
+        <select>
+          <option value="">— Select —</option>
+          <option>Social Media (Instagram, Twitter, etc.)</option>
+          <option>Word of mouth / Friend referral</option>
+          <option>Google / Online search</option>
+          <option>WhatsApp group</option>
+          <option>Radio / TV advertisement</option>
+          <option>Flyer / Poster</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Any Additional Notes or Questions for EduCore?</label>
+        <textarea placeholder="Anything else you'd like us to know, or questions you have before joining." style="min-height:70px;"></textarea>
+      </div>
+
+      <div class="form-group" style="margin-bottom:0.5rem;">
+        <div class="consent-row">
+          <input type="checkbox" id="consent1" />
+          <label for="consent1">I confirm that all information provided is accurate and that I am at least 18 years old. I understand that providing false information will result in immediate disqualification. <span class="req">*</span></label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="consent-row">
+          <input type="checkbox" id="consent2" />
+          <label for="consent2">I agree to EduCore's <a href="#">Terms of Service</a>, <a href="#">Tutor Code of Conduct</a>, and <a href="#">Privacy Policy</a>. I consent to EduCore verifying my credentials. <span class="req">*</span></label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        Submit My Application
+        <span class="btn-arrow">→</span>
+      </button>
+
+      <p style="text-align:center; font-size:0.78rem; color:var(--edu-muted); margin-top:1rem;">
+        Applications are typically reviewed within 3 business days. You'll receive a confirmation email upon submission.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials-section">
+  <div class="section-header" style="text-align:center; max-width:560px; margin:0 auto 3.5rem;">
+    <span class="section-label">Tutor Stories</span>
+    <h2 class="section-title">From Our Tutor Community</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <p class="testi-quote">EduCore gave me the structure I needed to turn my teaching passion into real income. Within two months, I had 12 regular students and was earning more than my day job salary.</p>
+      <div class="testi-author">
+        <div class="testi-avatar ta-1">BA</div>
+        <div>
+          <div class="testi-name">Blessing Amadi</div>
+          <div class="testi-role">Mathematics Tutor · Port Harcourt</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-quote">As a final-year medical student, EduCore's flexible scheduling let me tutor Biology and Chemistry on weekends without disrupting my studies. The payment is always on time.</p>
+      <div class="testi-author">
+        <div class="testi-avatar ta-2">EO</div>
+        <div>
+          <div class="testi-name">Emmanuel Okeke</div>
+          <div class="testi-role">Biology & Chemistry Tutor · Enugu</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-quote">I retired from teaching after 22 years and thought I was done. EduCore brought me back — this time on my terms. I choose my students, my hours, and my subjects. Truly wonderful.</p>
+      <div class="testi-author">
+        <div class="testi-avatar ta-3">YD</div>
+        <div>
+          <div class="testi-name">Yetunde Durojaiye</div>
+          <div class="testi-role">English Literature Tutor · Lagos</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="faq-section" id="faq">
+  <div class="faq-layout">
+    <div>
+      <span class="section-label">Common Questions</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-sub">Can't find your answer here? Reach us at <a href="mailto:tutors@educore.ng" style="color:var(--edu-blue); text-decoration:none; font-weight:500;">tutors@educore.ng</a> and we'll respond within 24 hours.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Is there a fee to join EduCore as a tutor? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">No — registration is completely free. EduCore earns through a transparent platform service fee per successful session, which is separate from your agreed hourly rate. You always know your take-home before accepting any booking.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How long does the approval process take? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">Most applications are reviewed within 3 business days. Complex applications requiring additional document verification may take up to 5 days. You'll receive email updates at every stage of the process.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I teach online and in-person? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">Yes. EduCore supports both delivery modes. You can set your preference to online only, in-person only, or both, and update your preference at any time through your tutor dashboard. Online sessions use EduCore's built-in video classroom.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What documents do I need to apply? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">You'll need at minimum one academic certificate (degree, diploma, or SSCE), a valid government-issued ID (NIN slip, driver's licence, voter's card, or international passport), and a clear profile photo. Additional certificates strengthen your profile.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How and when are tutors paid? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">Tutors are paid every Friday for all sessions completed in the preceding week. Payments are made via direct bank transfer to your registered Nigerian bank account. You can track all earnings in real-time through your dashboard.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I set my own hourly rate? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">Yes. You propose your preferred hourly rate during registration. Our team may advise on competitive benchmarks for your subject and level, but the final rate is agreed by you. You can adjust your rate over time as your reviews grow.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What happens if a student cancels a booked session? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">EduCore's cancellation policy protects tutors. Late cancellations (under 12 hours before a session) trigger an automatic partial compensation to you. Full cancellation terms are covered in the Tutor Code of Conduct.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="margin-bottom:0.5rem; display:inline-flex;">
+        <div class="logo-mark">E</div>
+        EduCore
+      </a>
+      <p>EduCore is Nigeria's trusted academic platform connecting qualified tutors with motivated students. We believe quality education should be accessible to every learner.</p>
+    </div>
+    <div class="footer-col">
+      <h4>For Tutors</h4>
+      <ul>
+        <li><a href="#why">Why Join</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#earnings">Earnings</a></li>
+        <li><a href="#register">Apply Now</a></li>
+        <li><a href="#">Tutor Dashboard</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>For Students</h4>
+      <ul>
+        <li><a href="#">Find a Tutor</a></li>
+        <li><a href="#">How to Book</a></li>
+        <li><a href="#">Subjects Available</a></li>
+        <li><a href="#">Student Reviews</a></li>
+        <li><a href="#">Group Sessions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>EduCore</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Tutor Code of Conduct</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 EduCore. All rights reserved. · Empowering Education Across Nigeria.</p>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="mailto:tutors@educore.ng">tutors@educore.ng</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ── FLOATING CTA ── -->
+<div class="floating-cta" id="floatingCta">
+  <a href="#register" class="floating-btn">
+    <span class="dot"></span>
+    Apply as Tutor
+  </a>
+</div>
+
+<script>
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => o.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  /* Floating CTA on scroll */
+  const floatingCta = document.getElementById('floatingCta');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) {
+      floatingCta.classList.add('visible');
+    } else {
+      floatingCta.classList.remove('visible');
+    }
+  });
+
+  /* Form submit simulation */
+  document.querySelector('.submit-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    this.textContent = '✓ Application Submitted!';
+    this.style.background = '#13875A';
+    this.style.cursor = 'default';
+    setTimeout(() => {
+      this.innerHTML = 'Submit My Application <span class="btn-arrow">→</span>';
+      this.style.background = '';
+      this.style.cursor = '';
+    }, 4000);
+  });
+
+  /* File upload label update */
+  document.querySelectorAll('.file-upload input').forEach(input => {
+    input.addEventListener('change', function() {
+      if (this.files.length > 0) {
+        const p = this.closest('.file-upload').querySelector('p');
+        p.innerHTML = '<strong>✓ ' + this.files[0].name + '</strong>';
+        p.style.color = '#13875A';
+      }
+    });
+  });
+</script>
+</body>
+</html>
