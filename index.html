@@ -1327,7 +1327,7 @@
     };
 
     // ── Webhook check ──
-    if (!MAKE_WEBHOOK_URL || MAKE_WEBHOOK_URL === 'YOUR_MAKE_WEBHOOK_URL_HERE') {
+    if (!MAKE_WEBHOOK_URL || MAKE_WEBHOOK_URL === 'https://hook.eu1.make.com/8mwcb0g33tdkb2y3oto9go1eqx7pwl2h') {
       // Dev mode: log payload and show success so you can test UI
       console.warn('⚠️ Webhook URL not set. Payload that would be sent:', payload);
       setTimeout(() => showPanel('success-msg'), 800);
